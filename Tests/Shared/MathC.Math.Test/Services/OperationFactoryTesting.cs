@@ -80,7 +80,7 @@ public class OperationFactoryTesting
 
     private class FakeAddOperation : IOperation<int>
     {
-        public IReadOnlyList<string> Symbols => ["+"];
+        public string Symbol => "+";
 
         public int Precedence => 1;
 

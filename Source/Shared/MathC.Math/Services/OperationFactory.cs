@@ -6,28 +6,26 @@ namespace MathC.Math.Services;
 public class OperationFactory<T> : IOperationFactory<T>
     where T : INumber<T>
 {
-    public OperationFactory()
-    {
-        
-    }
+    private readonly Dictionary<string, IOperation<T>> _operations = [];
 
     public IOperation<T> Get(string symbol)
     {
-        throw new NotImplementedException();
+        if (_operations.TryGetValue(symbol, out var op))
+        {
+            return op;
+        }
+        else
+        {
+            throw new KeyNotFoundException($"Operation '{symbol}' not found.");
+        }
     }
 
-    public bool IsOperation(string token)
-    {
-        throw new NotImplementedException();
-    }
+    public bool IsOperation(string symbol) =>
+        _operations.ContainsKey(symbol);
 
-    public void Register(IOperation<T> operation)
-    {
-        throw new NotImplementedException();
-    }
+    public void Register(IOperation<T> operation) =>
+        _operations.Add(operation.Symbol, operation);
 
-    public bool TryGet(string symbol, out IOperation<T> operation)
-    {
-        throw new NotImplementedException();
-    }
+    public bool TryGet(string symbol, out IOperation<T> operation) =>
+        _operations.TryGetValue(symbol, out operation);
 }

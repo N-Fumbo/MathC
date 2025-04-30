@@ -10,7 +10,7 @@ public interface IOperationFactory<T> : ISingleton
 
     bool TryGet(string symbol, out IOperation<T> operation);
 
-    bool IsOperation(string token);
+    bool IsOperation(string symbol);
 
     IOperation<T> Get(string symbol);
 }

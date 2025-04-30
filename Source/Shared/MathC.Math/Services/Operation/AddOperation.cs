@@ -6,7 +6,7 @@ namespace MathC.Math.Services.Operation;
 public class AddOperation<T> : IOperation<T>
     where T : INumber<T>
 {
-    public IReadOnlyList<string> Symbols => ["+"];
+    public string Symbol => "+";
 
     public int Precedence => 1;
 
