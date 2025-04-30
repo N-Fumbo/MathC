@@ -3,8 +3,8 @@ using System.Numerics;
 
 namespace MathC.Math.Interfaces;
 
-public interface ICalculator<T> : ISingleton
-    where T : INumber<T>
+public interface ICalculator<TNumber> : ISingleton
+    where TNumber : INumber<TNumber>
 {
-    T Evaluate(string expression);
+    TNumber Evaluate(string expression);
 }

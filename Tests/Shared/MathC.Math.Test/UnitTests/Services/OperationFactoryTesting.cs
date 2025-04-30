@@ -1,7 +1,7 @@
 ﻿using MathC.Math.Interfaces.Operation;
 using MathC.Math.Services;
 
-namespace MathC.Math.Test.Services;
+namespace MathC.Math.Test.UnitTests.Services;
 
 public class OperationFactoryTesting
 {

@@ -3,12 +3,12 @@ using System.Numerics;
 
 namespace MathC.Math.Services;
 
-public class OperationFactory<T> : IOperationFactory<T>
-    where T : INumber<T>
+public class OperationFactory<TNumber> : IOperationFactory<TNumber>
+    where TNumber : INumber<TNumber>
 {
-    private readonly Dictionary<string, IOperation<T>> _operations = [];
+    private readonly Dictionary<string, IOperation<TNumber>> _operations = [];
 
-    public IOperation<T> Get(string symbol)
+    public IOperation<TNumber> Get(string symbol)
     {
         if (_operations.TryGetValue(symbol, out var op))
         {
@@ -23,9 +23,9 @@ public class OperationFactory<T> : IOperationFactory<T>
     public bool IsOperation(string symbol) =>
         _operations.ContainsKey(symbol);
 
-    public void Register(IOperation<T> operation) =>
+    public void Register(IOperation<TNumber> operation) =>
         _operations.Add(operation.Symbol, operation);
 
-    public bool TryGet(string symbol, out IOperation<T> operation) =>
+    public bool TryGet(string symbol, out IOperation<TNumber> operation) =>
         _operations.TryGetValue(symbol, out operation);
 }

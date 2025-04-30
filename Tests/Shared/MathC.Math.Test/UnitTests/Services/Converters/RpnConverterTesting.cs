@@ -4,7 +4,7 @@ using MathC.Math.Services.Converters;
 using MathC.Math.Services.Operation;
 using System.Globalization;
 
-namespace MathC.Math.Test.Services.Converters;
+namespace MathC.Math.Test.UnitTests.Services.Converters;
 
 public class RpnConverterTesting
 {

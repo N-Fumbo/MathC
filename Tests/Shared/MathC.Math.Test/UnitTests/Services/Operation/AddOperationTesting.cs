@@ -1,6 +1,6 @@
 ﻿using MathC.Math.Services.Operation;
 
-namespace MathC.Math.Test.Services.Operation;
+namespace MathC.Math.Test.UnitTests.Services.Operation;
 
 public class AddOperationTesting
 {

@@ -3,14 +3,14 @@ using System.Numerics;
 
 namespace MathC.Math.Interfaces.Operation;
 
-public interface IOperationFactory<T> : ISingleton
-    where T : INumber<T>
+public interface IOperationFactory<TNumber> : ISingleton
+    where TNumber : INumber<TNumber>
 {
-    void Register(IOperation<T> operation);
+    void Register(IOperation<TNumber> operation);
 
-    bool TryGet(string symbol, out IOperation<T> operation);
+    bool TryGet(string symbol, out IOperation<TNumber> operation);
 
     bool IsOperation(string symbol);
 
-    IOperation<T> Get(string symbol);
+    IOperation<TNumber> Get(string symbol);
 }

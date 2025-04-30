@@ -5,7 +5,7 @@ using MathC.Math.Services.Evaluators;
 using MathC.Math.Services.Operation;
 using System.Globalization;
 
-namespace MathC.Math.Test.Services.Calculators;
+namespace MathC.Math.Test.IntegrationTests.Services.Calculators;
 
 public class RpnCalculatorTesting
 {
@@ -19,7 +19,7 @@ public class RpnCalculatorTesting
     [InlineData("3.5 + 2.25", 5.75)]
     [InlineData("(2.75 + 3.75) * 4", 26)]
     [InlineData("(10 + 20 + (30 - 20)) * 4", 160)]
-    [Trait("Type", "Модульные тесты")]
+    [Trait("Type", "Интеграционный тест")]
     public void Evaluate_ValidRequest_ReturnsCorrectResult(string expression, double expected)
     {
         var result = _calculator.Evaluate(expression);
@@ -30,7 +30,7 @@ public class RpnCalculatorTesting
     [Theory]
     [InlineData("10 / 0")]
     [InlineData("25 * (2 / 1) * 10 - 3 / 0")]
-    [Trait("Type", "Модульные тесты")]
+    [Trait("Type", "Интеграционный тест")]
     public void Evaluate_DivisionByZero_ThrowsDivideByZeroException(string expression)
     {
         Assert.Throws<DivideByZeroException>(() => _calculator.Evaluate(expression));

@@ -2,8 +2,8 @@
 
 namespace MathC.Math.Interfaces;
 
-public interface IMathConverter<T> : ISingleton
-    where T : class
+public interface IMathConverter<TNumber> : ISingleton
+    where TNumber : class
 {
-    T Convert(List<string> tokens);
+    TNumber Convert(IEnumerable<string> tokens);
 }
