@@ -1,22 +1,23 @@
 ﻿using MathC.Math.Interfaces;
+using MathC.Math.Interfaces.Operation;
 using System.Numerics;
 
 namespace MathC.Math.Services.Evaluators;
 
-public class RpnEvaluator<T>(OperationFactory<T> factory, IFormatProvider provider) : IEvaluator<T, List<string>>
-    where T : INumber<T>
+public class RpnEvaluator<TNumber>(IOperationFactory<TNumber> factory, IFormatProvider provider) : IEvaluator<TNumber, List<string>>
+    where TNumber : INumber<TNumber>
 {
-    private readonly OperationFactory<T> _factory = factory;
+    private readonly IOperationFactory<TNumber> _factory = factory;
 
     private readonly IFormatProvider _provider = provider;
 
-    public T Convert(List<string> rpnTokens)
+    public TNumber Evaluate(List<string> rpnTokens)
     {
-        var stack = new Stack<T>();
+        var stack = new Stack<TNumber>();
 
         foreach (var token in rpnTokens)
         {
-            if (T.TryParse(token, _provider, out var number))
+            if (TNumber.TryParse(token, _provider, out var number))
             {
                 stack.Push(number);
             }

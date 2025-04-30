@@ -1,12 +1,13 @@
 ﻿using MathC.Math.Interfaces;
+using MathC.Math.Interfaces.Operation;
 using System.Numerics;
 
 namespace MathC.Math.Services.Converters;
 
-public class RpnConverter<T>(OperationFactory<T> factory, IFormatProvider formatProvider) : IMathConverter<List<string>>
-    where T : INumber<T>
+public class RpnConverter<TNumber>(IOperationFactory<TNumber> factory, IFormatProvider formatProvider) : IMathConverter<List<string>>
+    where TNumber : INumber<TNumber>
 {
-    private readonly OperationFactory<T> _factory = factory;
+    private readonly IOperationFactory<TNumber> _factory = factory;
 
     private readonly IFormatProvider _formatProvider = formatProvider;
 
@@ -14,7 +15,7 @@ public class RpnConverter<T>(OperationFactory<T> factory, IFormatProvider format
 
     private const string _closingBracket = ")";
 
-    public List<string> Convert(List<string> tokens)
+    public List<string> Convert(IEnumerable<string> tokens)
     {
         var output = new List<string>();
 
@@ -22,7 +23,7 @@ public class RpnConverter<T>(OperationFactory<T> factory, IFormatProvider format
 
         foreach (var token in tokens)
         {
-            if (T.TryParse(token, _formatProvider, out _))
+            if (TNumber.TryParse(token, _formatProvider, out _))
             {
                 output.Add(token);
             }

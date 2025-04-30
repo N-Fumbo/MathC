@@ -3,14 +3,14 @@ using System.Numerics;
 
 namespace MathC.Math.Services.Operation;
 
-public class DivideOperation<T> : IOperation<T>
-    where T : INumber<T>
+public class DivideOperation<TNumber> : IOperation<TNumber>
+    where TNumber : INumber<TNumber>
 {
-    public string Symbol => "/";
+    public virtual string Symbol => "/";
 
     public int Precedence => 2;
 
-    public T Apply(T left, T right)
+    public TNumber Apply(TNumber left, TNumber right)
     {
         if (right == default)
             throw new DivideByZeroException();

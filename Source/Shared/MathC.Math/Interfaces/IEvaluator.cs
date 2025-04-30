@@ -7,5 +7,5 @@ public interface IEvaluator<TNumber, TParam> : ISingleton
     where TNumber : INumber<TNumber>
     where TParam : class
 {
-    TNumber Convert(TParam convertedTokens);
+    TNumber Evaluate(TParam convertedTokens);
 }

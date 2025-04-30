@@ -20,7 +20,7 @@ public class Calculator<TNumber, TConverter>(
 
         var convetredTokens = _converter.Convert(tokens);
 
-        var result = _evaluator.Convert(convetredTokens);
+        var result = _evaluator.Evaluate(convetredTokens);
 
         return result;
     }

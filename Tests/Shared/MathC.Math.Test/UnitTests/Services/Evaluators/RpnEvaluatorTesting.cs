@@ -3,7 +3,7 @@ using MathC.Math.Services;
 using MathC.Math.Services.Evaluators;
 using System.Globalization;
 
-namespace MathC.Math.Test.Services.Evaluators;
+namespace MathC.Math.Test.UnitTests.Services.Evaluators;
 
 public class RpnEvaluatorTesting
 {
@@ -14,7 +14,7 @@ public class RpnEvaluatorTesting
         var rpnTokens = new List<string> { "2", "3", "+" };
         var evaluator = GetEvaluator();
 
-        var result = evaluator.Convert(rpnTokens); //TODO: Изменить название метода на Evaluate
+        var result = evaluator.Evaluate(rpnTokens);
 
         Assert.Equal(5, result); // 2 + 3
     }
@@ -26,7 +26,7 @@ public class RpnEvaluatorTesting
         var rpnTokens = new List<string> { "2", "3", "4", "*", "+" };
         var evaluator = GetEvaluator();
 
-        var result = evaluator.Convert(rpnTokens);
+        var result = evaluator.Evaluate(rpnTokens);
 
         Assert.Equal(14, result); // (3 * 4) + 2 = 14
     }
@@ -38,7 +38,7 @@ public class RpnEvaluatorTesting
         var rpnTokens = new List<string> { "2", "3", "+", "4", "*" };
         var evaluator = GetEvaluator();
 
-        var result = evaluator.Convert(rpnTokens);
+        var result = evaluator.Evaluate(rpnTokens);
 
         Assert.Equal(20, result); // (2 + 3) * 4 = 20
     }
@@ -50,7 +50,7 @@ public class RpnEvaluatorTesting
         var rpnTokens = new List<string> { "1", "2", "3", "*", "+", "4", "+" };
         var evaluator = GetEvaluator();
 
-        var result = evaluator.Convert(rpnTokens);
+        var result = evaluator.Evaluate(rpnTokens);
 
         Assert.Equal(11, result); // 1 + (2 * 3) + 4 = 11
     }

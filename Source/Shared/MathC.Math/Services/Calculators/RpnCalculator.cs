@@ -5,10 +5,11 @@ using System.Numerics;
 
 namespace MathC.Math.Services.Calculators;
 
-public class RpnCalculator<T>(
-    RpnConverter<T> converter,
-    RpnEvaluator<T> evaluator) : Calculator<T, List<string>>(converter, evaluator)
+public class RpnCalculator<TNumber>(
+    RpnConverter<TNumber> converter,
+    RpnEvaluator<TNumber> evaluator) : Calculator<TNumber, List<string>>(converter, evaluator)
 
-    where T : INumber<T>
+    where TNumber : INumber<TNumber>
 {
+
 }

@@ -3,12 +3,12 @@ using System.Numerics;
 
 namespace MathC.Math.Services.Operation;
 
-public class SubtractOperation<T> : IOperation<T>
-    where T : INumber<T>
+public class SubtractOperation<TNumber> : IOperation<TNumber>
+    where TNumber : INumber<TNumber>
 {
-    public string Symbol => "-";
+    public virtual string Symbol => "-";
 
     public int Precedence => 1;
 
-    public T Apply(T left, T right) => left - right;
+    public TNumber Apply(TNumber left, TNumber right) => left - right;
 }

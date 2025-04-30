@@ -1,4 +1,4 @@
-﻿namespace MathC.Math.Test;
+﻿namespace MathC.Math.Test.UnitTests;
 
 public class TokenizerTesting
 {
