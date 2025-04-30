@@ -10,9 +10,9 @@ public class DivideOperationTesting
     {
         var divide = new DivideOperation<int>();
 
-        var result = divide.Apply(4, 5);
+        var result = divide.Apply(10, 5);
 
-        Assert.Equal(9, result);
+        Assert.Equal(2, result);
     }
 
     [Fact]
