@@ -2,6 +2,7 @@
 using MathC.Math.Services;
 using MathC.Math.Services.Converters;
 using MathC.Math.Services.Operation;
+using System.Globalization;
 
 namespace MathC.Math.Test.Services.Converters;
 
@@ -75,7 +76,7 @@ public class RpnConverterTesting
 
         factory.Register(new MultiplyOperation<double>());
 
-        return new RpnConverter<double>(factory);
+        return new RpnConverter<double>(factory, CultureInfo.InvariantCulture);
     }
 
     private class FakeAddOperation : IOperation<double>
