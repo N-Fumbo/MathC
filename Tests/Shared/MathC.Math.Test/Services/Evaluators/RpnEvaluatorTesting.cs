@@ -1,6 +1,7 @@
 ﻿using MathC.Math.Interfaces.Operation;
 using MathC.Math.Services;
 using MathC.Math.Services.Evaluators;
+using System.Globalization;
 
 namespace MathC.Math.Test.Services.Evaluators;
 
@@ -62,7 +63,7 @@ public class RpnEvaluatorTesting
 
         factory.Register(new FakeMultiplyOperation());
 
-        return new RpnEvaluator<double>(factory);
+        return new RpnEvaluator<double>(factory, CultureInfo.InvariantCulture);
     }
 
     private class FakeAddOperation : IOperation<double>
